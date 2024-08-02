@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "nombre": "Coca Cola",
+    "precio": 1.5,
+    "categoria": "Refrescos",
+    "descripcion": "Bebida gaseosa refrescante con sabor a cola.",
+    "imagen": "",
+    "status":1
+  },
+  {
+    "id": 2,
+    "nombre": "Pepsi",
+    "precio": 1.5,
+    "categoria": "Refrescos",
+    "descripcion": "Bebida gaseosa refrescante con sabor a cola.",
+    "imagen": "",
+    "status":1
+  },
+  {
+    "id": 3,
+    "nombre": "Agua Mineral",
+    "precio": 1.0,
+    "categoria": "Aguas",
+    "descripcion": "Agua con gas, perfecta para refrescarse.",
+    "imagen": "",
+    "status":1
+  },
+  {
+    "id": 4,
+    "nombre": "Agua Natural",
+    "precio": 0.8,
+    "categoria": "Aguas",
+    "descripcion": "Agua purificada sin gas.",
+    "imagen": "",
+    "status":1
+  },
+  {
+    "id": 5,
+    "nombre": "Jugo de Naranja",
+    "precio": 2.0,
+    "categoria": "Jugos",
+    "descripcion": "Jugo natural de naranja recién exprimido.",
+    "imagen": "",
+    "status":1
+  },
+  {
+    "id": 6,
+    "nombre": "Jugo de Manzana",
+    "precio": 2.0,
+    "categoria": "Jugos",
+    "descripcion": "Jugo natural de manzana sin conservantes.",
+    "imagen": "",
+    "status":1
+  },
+  {
+    "id": 7,
+    "nombre": "Café Espresso",
+    "precio": 2.5,
+    "categoria": "Cafés",
+    "descripcion": "Café negro fuerte y concentrado.",
+    "imagen": "",
+    "status":1
+  },
+  {
+    "id": 8,
+    "nombre": "Café Americano",
+    "precio": 2.0,
+    "categoria": "Cafés",
+    "descripcion": "Café diluido con agua caliente.",
+    "imagen": "",
+    "status":1
+  },
+  {
+    "id": 9,
+    "nombre": "Té Verde",
+    "precio": 1.5,
+    "categoria": "Tés",
+    "descripcion": "Bebida caliente de té verde.",
+    "imagen": "",
+    "status":1
+  },
+  {
+    "id": 10,
+    "nombre": "Limonada",
+    "precio": 1.5,
+    "categoria": "Jugos",
+    "descripcion": "Bebida refrescante hecha de limones frescos.",
+    "imagen": "",
+    "status":1
+  }
+]
