@@ -179,15 +179,16 @@ table,#tabla {
     "d d d e e";
 }
 
-#form-content input,select{
+#form-content input,select,textarea{
   border: 2px black solid;
   border-radius: 15px;
   padding: 2px;
   padding-left: 1rem;
 }
 
-#form-content input::placeholder{
+#form-content input::placeholder,textarea::placeholder{
   color: #000;
+  vertical-align: middle;
 }
 
 #form-content input:focus{
@@ -214,9 +215,25 @@ table,#tabla {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
+  gap: 1rem;
   grid-area: e;
 }
 
 #imageBebida img{
   width: 13rem;
+}
+
+.btn-icon{
+  background: transparent;
+  border: none;
+}
+
+.btn-icon img{
+  width: 20px;
+  margin-right: 10px;
+}
+
+.invivible{
+  display: none;
 }
