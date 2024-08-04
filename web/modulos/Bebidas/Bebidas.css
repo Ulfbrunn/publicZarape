@@ -195,33 +195,47 @@ table,#tabla {
   padding-left: 1rem;
 }
 
-#txtNombre {
+#group-nombre{
   grid-area: a;
 }
 
-#txtPrecio {
+#group-precio{
   grid-area: b;
 }
 
-#cmbCategoria {
+#group-categoria{
   grid-area: c;
 }
 
-#txtDescripcion{
+#group-descripcion{
   grid-area: d;
+}
+
+.group{
+  display: flex;
+  flex-direction: column;
 }
 
 #imageBebida {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   gap: 1rem;
   grid-area: e;
 }
 
 #imageBebida img{
   width: 13rem;
+}
+
+#form-content div {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-content label {
+  margin-bottom: 0.5rem;
 }
 
 .btn-icon{
@@ -234,6 +248,6 @@ table,#tabla {
   margin-right: 10px;
 }
 
-.invivible{
+.invisible{
   display: none;
 }

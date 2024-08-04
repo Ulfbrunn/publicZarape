@@ -17,8 +17,9 @@ let data = [], url = 'http://localhost:8080/Modulos/modulos/Bebidas/';
 let idBebida = 0;
 
 //? Eventos
-abrirModal.addEventListener('click', () => {
-  modal.style.display = 'block';
+abrirModal.addEventListener('click', (event) => {
+  activar();
+  mostrarModal();
 });
 
 document.getElementById('cerrarModal').addEventListener('click',(event)=>{
@@ -48,8 +49,9 @@ btnGuardar.addEventListener('click',(event)=>{
 
 //? Funciones
 const cargaDatos= async () => {
-    const data = await fetch(url+'Bebidas.json');
-    let newData = await data.json();
+    const mydata = await fetch(url+'Bebidas.json');
+    let newData = await mydata.json();
+    data = newData;
     let html="";
     newData.forEach(element => {
         if(element.status == 1) {
@@ -106,14 +108,34 @@ const crearNuevo = () => {
 
 const actualizar = () => {
 
+  const newData = {
+    "nombre": txtNombre.value,
+    "precio": parseFloat(txtPrecio.value),
+    "categoria": cmbCategoria.value,
+    "descripcion": txtDescripcion.value,
+    "imagen": img.src
+  };
+
+  const {idRegister, status} = data[id-1];
+  data[id-1] = newData;
+  data[id-1].id = idRegister;
+  data[id-1].status = status;
 };
 
 const activar = () => {
-  
+  txtNombre.disable = false;
+  txtPrecio.disable = false;
+  cmbCategoria.disable = false;
+  txtDescripcion.disable = false;
+  inputFileImage.classList.remove('invisible');
 };
 
 const desactivar = () => {
-  
+  txtNombre.disable = true;
+  txtPrecio.disable = true;
+  cmbCategoria.disable = true;
+  txtDescripcion.disable = true;
+  inputFileImage.classList.add('invisible');
 };
 
 const eliminar = (id) => {
@@ -121,12 +143,25 @@ const eliminar = (id) => {
 };
 
 
-const ver = (id) => {
-
+const ver = (idRegister) => {
+  console.log(idRegister);
+  id = idRegister;
+  console.log(data[id-1]);
+  txtNombre.value = data[id-1].nombre;
+  txtPrecio.value = data[id-1].precio;
+  cmbCategoria.value = data[id-1].categoria;
+  txtDescripcion.value = data[id-1].descripcion;
+  img.src = data[id-1].imagen;
+  desactivar();
+  mostrarModal();
 };
 
 const editar = (id) =>{
+  activar();
+};
 
+const mostrarModal= () => {
+  modal.style.display = 'block';
 };
 
 //? Evento de carga
