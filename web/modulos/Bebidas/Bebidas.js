@@ -18,6 +18,7 @@ let idBebida = 0;
 
 //? Eventos
 abrirModal.addEventListener('click', (event) => {
+  limpiar();
   activar();
   mostrarModal();
 });
@@ -52,8 +53,12 @@ const cargaDatos= async () => {
     const mydata = await fetch(url+'Bebidas.json');
     let newData = await mydata.json();
     data = newData;
-    let html="";
-    newData.forEach(element => {
+    imprimirDatos();
+}
+
+const imprimirDatos = ()=>{
+  let html="";
+    data.forEach(element => {
         if(element.status == 1) {
           html+=`<tr class="cuerpo">
                   <td>${element.nombre}</td>
@@ -68,9 +73,10 @@ const cargaDatos= async () => {
         }
     });
     tabla.innerHTML =html;
-}
+};
 
 const limpiar = ()=>{
+  idBebida=0;
   txtNombre.value = "";
   txtPrecio.value = null;
   txtDescripcion.value="";
@@ -80,13 +86,12 @@ const limpiar = ()=>{
 };
 
 const guardar = ()=>{
-  if (idBebida) crearNuevo(); 
+  if (idBebida == 0) crearNuevo(); 
   else actualizar();
-  const json = JSON.stringify(data);
-  const fileWriter = new FileWriter('Bebidas.json');
-  fileWriter.write(json);
-  cargaDatos();
+  //guardarData();
   cerrarModal();
+  imprimirDatos();
+  limpiar();
 };
 
 const cerrarModal = ()=>{
@@ -94,8 +99,9 @@ const cerrarModal = ()=>{
 }
 
 const crearNuevo = () => {
+  let newId = data[data.length-1].id + 1;
   const newRegister = {
-    "id": data[data.length].id + 1,
+    "id": newId,
     "nombre": txtNombre.value,
     "precio": parseFloat(txtPrecio.value),
     "categoria": cmbCategoria.value,
@@ -116,52 +122,71 @@ const actualizar = () => {
     "imagen": img.src
   };
 
-  const {idRegister, status} = data[id-1];
-  data[id-1] = newData;
-  data[id-1].id = idRegister;
-  data[id-1].status = status;
+  const {idRegister, status} = data[idBebida-1];
+  data[idBebida-1] = newData;
+  data[idBebida-1].id = idRegister;
+  data[idBebida-1].status = status;
 };
 
 const activar = () => {
-  txtNombre.disable = false;
-  txtPrecio.disable = false;
-  cmbCategoria.disable = false;
-  txtDescripcion.disable = false;
+  txtNombre.disabled = false;
+  txtPrecio.disabled = false;
+  cmbCategoria.disabled = false;
+  txtDescripcion.disabled = false;
   inputFileImage.classList.remove('invisible');
 };
 
 const desactivar = () => {
-  txtNombre.disable = true;
-  txtPrecio.disable = true;
-  cmbCategoria.disable = true;
-  txtDescripcion.disable = true;
+  txtNombre.disabled = true;
+  txtPrecio.disabled = true;
+  cmbCategoria.disabled = true;
+  txtDescripcion.disabled = true;
   inputFileImage.classList.add('invisible');
 };
 
-const eliminar = (id) => {
-
+const eliminar = (idRegister) => {
+  data[idRegister-1].status = 2;
+  //guardarData();
+  imprimirDatos();
 };
 
+//? No sirve
+const guardarData = () => {
+  const json = JSON.stringify(data);
+  const fileWriter = new FileWriter('./Bebidas.json');
+  fileWriter.write(json);
+};
 
 const ver = (idRegister) => {
-  console.log(idRegister);
-  id = idRegister;
-  console.log(data[id-1]);
-  txtNombre.value = data[id-1].nombre;
-  txtPrecio.value = data[id-1].precio;
-  cmbCategoria.value = data[id-1].categoria;
-  txtDescripcion.value = data[id-1].descripcion;
-  img.src = data[id-1].imagen;
-  desactivar();
+  idBebida = idRegister;
+  txtNombre.value = data[idBebida-1].nombre;
+  txtPrecio.value = data[idBebida-1].precio;
+  cmbCategoria.value = data[idBebida-1].categoria;
+  txtDescripcion.value = data[idBebida-1].descripcion;
+  img.src = data[idBebida-1].imagen;
   mostrarModal();
+  btnGuardar.classList.add('invisible');
+  btnLimpiar.classList.add('invisible');
+  desactivar();
 };
 
-const editar = (id) =>{
+const editar = (idRegister) =>{
   activar();
+  idBebida = idRegister;
+  console.log(data[idBebida-1]);
+  txtNombre.value = data[idBebida-1].nombre;
+  txtPrecio.value = data[idBebida-1].precio;
+  cmbCategoria.value = data[idBebida-1].categoria;
+  txtDescripcion.value = data[idBebida-1].descripcion;
+  img.src = data[idBebida-1].imagen;
+  mostrarModal();
+  btnLimpiar.classList.add('invisible');
 };
 
 const mostrarModal= () => {
   modal.style.display = 'block';
+  btnGuardar.classList.remove('invisible');
+  btnLimpiar.classList.remove('invisible');
 };
 
 //? Evento de carga
