@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Zarape</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Sucursal.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <!-- DIV DEL MENU -->    
+    <div class="container-fluid">
+        <div class="row">
+             <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class="logo d-flex align-items-center justify-content-center">
+                    <img src="../../Logo_ElZarape.png" alt="El Zarape">
+                    <span class="logo-text ml-2">EL ZARAPE</span>
+                </div>
+                <a href="Login.html" class="btn btn-block">Login</a>
+                <a href="Sucursal.html" class="btn btn-block">Sucursal</a>
+                <a href="Bebidas.html" class="btn btn-block">Bebidas</a>
+                <a href="Alimentos.html" class="btn btn-block">Alimentos</a>
+                <a href="Combos.html" class="btn btn-block">Combos</a>
+                <a href="Cocina.html" class="btn btn-block">Cocina</a>
+                <a href="Comanda.html" class="btn btn-block">Comanda</a>
+            </nav>
+            
+            <main role="main" class="col-md-10 ml-sm-auto px-4 main-content">
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <button class="btn btn-warning">Nueva Sucursal</button>
+                    <div class="input-group mb-3 search-bar">
+                        <input type="text" class="form-control" placeholder="Buscar sucursal">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="../../Logo_ElZarape.png" alt="El Zarape" class="logo-small">
+                                    <div class="ml-3">
+                                        <h2 class="card-title">EL ZARAPE</h2>
+                                        <p class="branch-id">ID de Sucursal: 12345</p>
+                                    </div>
+                                </div>
+                                <p><i class="fas fa-map-marker-alt"></i><p><span class="icon">📍</span> Ubicacion</p>                      
+                                <p class="location-info">Información de ubicación aquí</p>
+                                <p><i class="fas fa-clock"></i>  <p><span class="icon">⏰</span> Horarios</p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Día</th>
+                                            <th>Hora</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lunes</td>
+                                            <td>9:00 - 18:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Martes</td>
+                                            <td>9:00 - 18:00</td>
+                                        </tr>
+                                        <!-- Agrega más filas según sea necesario -->
+                                    </tbody>
+                                </table>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <p class="font-weight-bold mb-0">Calificación:</p>
+                                    <p class="stars">★★★★★</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div id="map" class="map"></div>
+                    </div>
+                    
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
