@@ -13,7 +13,7 @@ const btnLimpiar = document.getElementById('btnLimpiar');
 const btnGuardar = document.getElementById('btnGuardar');
 
 //? Variables o constantes que uso
-let data = [], url = 'http://localhost:8080/Modulos/modulos/Bebidas/';
+let data = [];
 let idBebida = 0;
 
 //? Eventos
@@ -50,7 +50,7 @@ btnGuardar.addEventListener('click',(event)=>{
 
 //? Funciones
 const cargaDatos= async () => {
-    const mydata = await fetch(url+'Bebidas.json');
+    const mydata = await fetch('./Bebidas.json');
     let newData = await mydata.json();
     data = newData;
     imprimirDatos();
