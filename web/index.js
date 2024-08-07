@@ -8,6 +8,6 @@
  btnLogin.addEventListener('click',(event)=>{
     event.preventDefault();
     if(username.value === user && password.value === user_password){
-        window.location = "./modulos/Bebidas/Bebidas.html";
+        window.location = "./modulos/menu.html";
     };
  });
