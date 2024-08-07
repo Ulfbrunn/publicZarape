@@ -72,21 +72,25 @@ function modificarCombo(combo) {
     combo.querySelector('.descripcion p').textContent = descripcion;
     combo.querySelector('.descripcion p strong').textContent = `$${precio}`;
 
+    // Enviar solicitud de actualización al servidor
+    const comboId = combo.getAttribute('data-id');
+    fetch(`./actualizar-combo/${comboId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        nombre,
+        imagen,
+        descripcion,
+        precio
+      })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+
     // Cerrar el modal
     modal.remove();
   });
-}
-
-const botonesModificar = document.querySelectorAll('.btn-modificar');
-
-botonesModificar.forEach(boton => {
-  boton.addEventListener('click', () => {
-    const comboId = boton.getAttribute('data-combo');
-    modificarCombo(comboId);
-  });
-});
-
-function modificarCombo(comboId) {
-  // Lógica para modificar el combo con el ID especificado
-  console.log(`Modificando combo con ID ${comboId}`);
 }
