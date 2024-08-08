@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Zarape</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Sucursal.css">
+</head>
+<body>
+    <!-- DIV DEL MENU -->    
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class="logo d-flex align-items-center justify-content-center">
+                    <img src="../../img/Logo_ElZarape.png" alt="El Zarape">
+                    <span class="logo-text ml-2">EL ZARAPE</span>
+                </div>
+                <a href="Login.html" class="btn btn-block">Login</a>
+                <a href="Modulo/Sucursal/Sucursal.html" class="btn btn-block">Sucursal</a>
+                <a href="Bebidas.html" class="btn btn-block">Bebidas</a>
+                <a href="Alimentos.html" class="btn btn-block">Alimentos</a>
+                <a href="Combos.html" class="btn btn-block">Combos</a>
+                <a href="Cocina.html" class="btn btn-block">Cocina</a>
+                <a href="Comanda.html" class="btn btn-block">Comanda</a>
+            </nav>
+            
+            <main role="main" class="col-md-10 ml-sm-auto px-4 main-content">
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <button class="btn btn-warning" onclick="toggleNewBranchForm()">Nueva Sucursal</button>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card mt-4">
+                            <div class="card-header">Sucursales</div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Ubicación</th>
+                                            <th>Horarios</th>
+                                            <th>Logotipo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 d-flex align-items-start">
+                        <div class="card mt-4 sucursal-item">        
+                            <div class="sucursal-header">         
+                                <img id="sucursalLogo" src="../../img/default.jpg" alt="Logo El Zarape" class="sucursal-logo">            
+                                <div>               
+                                    <h5 id="sucursalName" class="card-title">Nombre sucursal</h5>              
+                                    <p id="sucursalId" class="branch-id">IdSucursal</p>                           
+                                </div>        
+                            </div>       
+                            <div class="card-body">           
+                                <div id="sucursalLocation" class="location-info">               
+                                    <i class="fas fa-map-marker-alt"></i> Ubicación:           
+                                </div>                                     
+                                <div id="sucursalHours" class="hours-info">           
+                                    <i class="fas fa-clock"></i> Horarios:           
+                                </div>           
+                                <div id="sucursalStars" class="stars">              
+                                    ★★★★★
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario para registrar nueva sucursal -->
+                <div id="new-branch-form" class="card mt-4">
+                    <div class="card-header">Registrar Nueva Sucursal</div>
+                    <div class="card-body">
+                        <form id="branchForm">
+                            <div class="form-group">
+                                <label for="branchId">ID Sucursal</label>
+                                <input type="text" class="form-control" id="branchId" placeholder="ID Sucursal">
+                            </div>
+                            <div class="form-group">
+                                <label for="branchName">Nombre de la Sucursal</label>
+                                <input type="text" class="form-control" id="branchName" placeholder="Nombre de la Sucursal">
+                            </div>
+                            <div class="form-group">
+                                <label for="branchLocation">Ubicación de la Sucursal</label>
+                                <input type="text" class="form-control" id="branchLocation" placeholder="Ubicación de la Sucursal">
+                            </div>
+                            <div class="form-group">
+                                <label for="branchHours">Horarios Disponibles</label>
+                                <input type="text" class="form-control" id="branchHours" placeholder="Horarios Disponibles">
+                            </div>
+                            <div class="form-group">
+                                <label for="branchLogo">Logotipo de la Sucursal</label>
+                                <input type="file" class="form-control-file" id="branchLogo">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="agregarSucursal()">Agregar</button>
+                            <button type="button" class="btn btn-secondary" onclick="modificarSucursal()">Modificar</button>
+                            <button type="button" class="btn btn-danger" onclick="eliminarSucursal()">Eliminar</button>
+                            <button type="button" class="btn btn-warning" onclick="limpiar()">Limpiar</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="Sucursal.js"></script>
+</body>
+</html>
+
+
